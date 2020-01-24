@@ -1,3 +1,6 @@
 <?php
-echo "<H1>Welcome to GEU !!</H1>"
+    $x=15;  
+    $y=30;  
+    $z=$x+$y;  
+    echo "Sum: ",$z;  
 ?>

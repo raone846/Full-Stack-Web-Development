@@ -1,15 +1,15 @@
 <?php
-$hostname = 'localhost';
-$username = 'root';
+$hostName = 'localhost';
+$userName = 'root';
 $password = '';
-$databaseName = 'user';
+$dataBase = 'user';
 
-$conn = mysqli_connect($hostname, $username, $password, $databaseName);
+$conn= mysqli_connect($hostName, $userName, $password, $dataBase);
 
-if($conn){
-    echo "connection successfull";
+if(mysqli_connect($hostName, $userName, $password, $dataBase)){
+   // echo 'Connection Successful!';
 }
 else{
-    echo mysqli_error();
+    echo "Connection Failed!" + mysqli_connect_error();
 }
 ?>

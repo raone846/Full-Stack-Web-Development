@@ -2,7 +2,7 @@
 <head><title>Input Data</title></head>
 
 <body>
-	<form action="details.php" method="get">
+	<form action="addRecord.php" method="post">
 	ID - <input name="id" type="text" placeholder="Id"><br>
 	UserName - <input name="username" type="text" placeholder="Username"><br>
 	Age - <input name="age" type="text" placeholder="Age"><br>
@@ -12,4 +12,3 @@
 	</form>
 </body>
 </html>
-

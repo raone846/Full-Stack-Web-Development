@@ -1,17 +1,41 @@
+<table border="1">
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Edit</th>
+    <th>Delete</th>
+</tr>    
+</thead>
+<tbody>
+
 <?php
 include('config.php');
 ?>
 
-<?php 
-if (isset($_POST['btn'])){
- echo "Dear, ".$_POST['username']." Your details are".'<br>';
- echo 'ID - '.$_POST['id'].'<br>';
- echo 'Username - '.$_POST['username'].'<br>';
- echo 'Age - '.$_POST['age'].'<br>';
- echo 'Contact - '.$_POST['contact'].'<br>';
- echo 'Email - '.$_POST['email']; 
-}
-else{
-    echo "Welcome Guest";
+<?php
+$sql = "SELECT * FROM `raone`";
+$result = mysqli_query($conn, $sql);
+?>
+
+<?php
+if ($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+?>
+    <tr>
+        <td><?php echo $row['Id']; ?></td>
+        <td><?php echo $row['Name']; ?></td>
+        <td><?php echo $row['Age']; ?></td>
+        <td><?php echo $row['Phone']; ?></td>
+        <td><?php echo $row['Email']; ?></td>
+        <td><a href="edit.php">Edit</a></td>
+        <td><a href="delete.php">Delete</a></td>
+    </tr>  
+<?php    }
 }
 ?>
+</tbody>
+</table>

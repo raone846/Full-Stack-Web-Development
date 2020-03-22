@@ -4,7 +4,16 @@
 $id = $_GET['id'];
 ?>
 
-
+<?php
+    $sql = "SELECT * FROM `raone` WHERE Id='$id'";
+    $result = mysqli_query($conn, $sql);
+    $row = $result->fetch_assoc();
+    $id = $row['Id'];
+    $name = $row['Name'];
+    $age = $row['Age'];
+    $contact = $row['Phone'];
+    $email = $row['Email'];
+?>
 <?php
 if(isset($_POST['update'])){
     $name = $_POST['username'];
@@ -15,22 +24,14 @@ if(isset($_POST['update'])){
     $sql = "UPDATE `raone` SET Name='$name', Age='$age',
     Phone='$contact', Email='$email' WHERE Id='$id'";
     if(mysqli_query($conn, $sql)){
-        header("Location:details.php");
+        echo "Data updated successfully...";
     }
     else{
-        echo 'failed'.mysqli_error($conn);
+        echo "Updation Failed...Try Again";
     }
 }
 else{
-    $sql = "SELECT * FROM `raone` WHERE Id='$id'";
-    $result = mysqli_query($conn, $sql);
-   while( $row = $result->fetch_assoc()){
-        $id = $row['Id'];
-        $name = $row['Name'];
-        $age = $row['Age'];
-        $contact = $row['Phone'];
-        $email = $row['Email'];
-   }
+    echo "Please click update button";
 }
 ?>
 
